@@ -11,7 +11,6 @@ def get_tron_client() -> TronClient:
     return TronClient()
 
 
-
 async def get_session() -> AsyncSession:
     async with async_session() as session:
         try:
