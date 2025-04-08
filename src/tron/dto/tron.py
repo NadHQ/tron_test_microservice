@@ -19,3 +19,9 @@ class TronAccountDTO:
     bandwidth: float
     energy: float
     trx_balance: float
+
+
+@dataclass
+class PaginationDTO:
+    page: int
+    per_page: int

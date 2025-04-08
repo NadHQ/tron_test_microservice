@@ -1,14 +1,10 @@
-from dataclasses import Field
 from datetime import datetime
-from typing import Annotated
-
-from pydantic import BaseModel
 
 from src.core.serializer import BaseSerializer
 
 
-class TronCreateSerializer(BaseModel):
-    address: Annotated[str, Field(..., description="TRON address")]
+class TronCreateSerializer(BaseSerializer):
+    address: str
 
 
 class TronBaseSerializer(BaseSerializer):
@@ -18,7 +14,7 @@ class TronBaseSerializer(BaseSerializer):
     trx_balance: float
 
 
-class TronDBRecordSerializer(TronBaseSerializer):
+class TronDBRecordSerializer(BaseSerializer):
     id: int
     address: str
     created_at: datetime

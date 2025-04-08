@@ -1,6 +1,7 @@
+from typing import Annotated
+
 from fastapi.params import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.sql.annotation import Annotated
 
 from src.core.clients.tron_client import TronClient
 from src.core.dependencies import get_session, get_tron_client

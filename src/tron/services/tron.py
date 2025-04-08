@@ -1,7 +1,7 @@
 from typing import List
 
 from src.core.clients.tron_client import TronClient
-from src.tron.dto.tron import TronAccountDTO, TronAddressDTO
+from src.tron.dto.tron import PaginationDTO, TronAccountDTO, TronAddressDTO
 from src.tron.repositories.tron import TronRepository
 
 
@@ -14,6 +14,6 @@ class TronService:
         raise NotImplementedError
 
     async def get_paginated_records(
-        self, page: int, per_page: int
+        self, pagination: PaginationDTO
     ) -> List[TronAccountDTO]:
         raise NotImplementedError
