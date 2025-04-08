@@ -17,9 +17,9 @@ class TronAddressDTO:
 @dataclass
 class TronAccountDTO:
     address: str
-    bandwidth: float
-    energy: float
-    trx_balance: float
+    bandwidth: int
+    energy: int
+    trx_balance: int
 
 
 @dataclass

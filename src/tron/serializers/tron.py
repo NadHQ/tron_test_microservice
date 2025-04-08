@@ -18,9 +18,9 @@ class TronCreateSerializer(BaseSerializer):
 
 class TronBaseSerializer(BaseSerializer):
     address: str
-    bandwidth: float
-    energy: float
-    trx_balance: float
+    bandwidth: int
+    energy: int
+    trx_balance: int
 
 
 class TronDBRecordSerializer(BaseSerializer):

@@ -34,7 +34,7 @@ class MockTronClient:
         from src.tron.dto.tron import TronAccountDTO
 
         return TronAccountDTO(
-            address=dto.address, bandwidth=9999.0, energy=8888.0, trx_balance=123.456
+            address=dto.address, bandwidth=9999, energy=8888, trx_balance=123
         )
 
 
