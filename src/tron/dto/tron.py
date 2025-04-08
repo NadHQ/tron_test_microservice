@@ -1,11 +1,12 @@
 from dataclasses import dataclass
+from datetime import datetime
 
 
 @dataclass
 class TronRecordInfoDTO:
     id: int
     address: str
-    create_date: str
+    create_date: datetime
 
 
 @dataclass

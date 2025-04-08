@@ -1,7 +1,8 @@
 from typing import List
 
 from src.core.clients.tron_client import TronClient
-from src.tron.dto.tron import PaginationDTO, TronAccountDTO, TronAddressDTO
+from src.tron.dto.tron import (PaginationDTO, TronAccountDTO, TronAddressDTO,
+                               TronRecordInfoDTO)
 from src.tron.repositories.tron import TronRepository
 
 
@@ -11,9 +12,16 @@ class TronService:
         self._tron_client = tron_client
 
     async def get_address_info(self, address: TronAddressDTO) -> TronAccountDTO:
-        raise NotImplementedError
+        database_record = await self._tron_repo.add_record(address)
+
+        tron_address_entity = await self._tron_client.get_address_information(address)
+        return tron_address_entity
 
     async def get_paginated_records(
         self, pagination: PaginationDTO
-    ) -> List[TronAccountDTO]:
-        raise NotImplementedError
+    ) -> List[TronRecordInfoDTO]:
+        offset = (pagination.page - 1) * pagination.per_page
+        records_list = await self._tron_repo.get_records(
+            limit=pagination.per_page, offset=offset
+        )
+        return records_list

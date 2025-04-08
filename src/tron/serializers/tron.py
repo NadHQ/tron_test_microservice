@@ -1,10 +1,19 @@
 from datetime import datetime
 
+from pydantic import field_validator
+
 from src.core.serializer import BaseSerializer
 
 
 class TronCreateSerializer(BaseSerializer):
     address: str
+
+    @field_validator("address")
+    @classmethod
+    def must_start_with_T(cls, v: str) -> str:
+        if not v.startswith("T"):
+            raise ValueError("TRON-адрес должен начинаться с 'T'")
+        return v
 
 
 class TronBaseSerializer(BaseSerializer):
@@ -17,4 +26,4 @@ class TronBaseSerializer(BaseSerializer):
 class TronDBRecordSerializer(BaseSerializer):
     id: int
     address: str
-    created_at: datetime
+    create_date: datetime

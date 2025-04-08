@@ -14,7 +14,5 @@ _AsyncEngine = create_async_engine(
     )
 )
 
-async_session = async_sessionmaker(
-    engine=_AsyncEngine, echo=True, expire_on_commit=False
-)
+async_session = async_sessionmaker(bind=_AsyncEngine, expire_on_commit=False)
 Base = declarative_base()

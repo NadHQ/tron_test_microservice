@@ -9,6 +9,6 @@ from src.core.database import Base
 
 class TronLogging(Base):
     __tablename__ = "tron"
-    id: Mapped[int] = mapped_column(Integer, primary_key=True, auto_increment=True)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
     address: Mapped[str] = mapped_column(String, nullable=False)
     create_date: Mapped[datetime] = mapped_column(insert_default=func.now())
