@@ -8,7 +8,7 @@ class DatabaseConfig(AppBaseConfig):
     DATABASE_USER: str
     DATABASE_PASSWORD: str
     DATABASE_HOST: str
-    DATABASE_PORT: str
+    DATABASE_PORT: int
     DATABASE_DB: str
 
 
